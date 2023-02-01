@@ -33,11 +33,5 @@ namespace CarWise.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            // Do your task.
-        }
-
     }
 }
