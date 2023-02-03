@@ -2,10 +2,38 @@
 @{
     ViewData["Title"] = "Faq";
 }
-<link rel="stylesheet" href="~/css/faq.css" />
+<link rel="stylesheet" href="~/css/faq_page.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
 <body>
     <main>
-        <h1 class="faq-heading">FREQUENTLY ASKED QUESTIONS</h1>
+        @*<h1 class="faq-heading">FREQUENTLY ASKED QUESTIONS</h1>*@
+        @*<div class="menu">
+            <div class="brand_name">
+                <a>CarWise</a>
+            </div>
+            <div class="homePage">
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </div>
+            <div class="rentPage">
+                <a asp-controller="Rent" asp-action="Index">Rent a car</a>
+            </div>
+            <div class="loginPage">
+                <a asp-controller="Login" asp-action="Index">Services</a>
+            </div>
+        </div>*@
+        <header>
+            <p class="Logo">CarWise</p>
+            <input type="checkbox" name="" class="btn"/>
+            <div class="nav">
+                <ol>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Rent" asp-action="Index">Rent a car</a></li>
+                    <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
+                    <li><a asp-controller="Login" asp-action="Index">Services</a></li>
+
+                </ol>
+            </div>
+        </header>
 
         <section class="faq-container">
             <div class="photo">
@@ -29,7 +57,7 @@
             <hr class="hr-line">
             <div class="faq-two">
                 <!-- faq question -->
-                <h1 class="faq-page">How old do I have ti be to rent a car?</h1>
+                <h1 class="faq-page">How old do I have to be to rent a car?</h1>
                 <!-- faq answer -->
                 <div class="faq-body">
                     <p>

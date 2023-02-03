@@ -64,12 +64,12 @@ body {
 
     #section-icons div {
         width: 33.33%;
-        float:left;
-        border-radius:5%;
+        float: left;
+        border-radius: 5%;
     }
 
     #section-icons .box1, #section-icons .box3 {
-        background: #000;  
+        background: #000;
     }
 
     #section-icons .box2 {
@@ -100,7 +100,7 @@ body {
     #section-icons img {
         width: 15%;
         height: 15%;
-        display:block;
+        display: block;
         margin-left: auto;
         margin-right: auto;
         padding: 20px 0 20px 0;
