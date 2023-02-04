@@ -49,7 +49,10 @@ header {
 }
 
     .btn::before {
-        content: '\f0c6';
+        content: url(/Content/NavigationMenu/menu_icon.png);
+        display: flex;
+        padding: 5px 5px 0 3px;
+        justify-content: center;
         position: absolute;
         top: 0;
         left: 0;
@@ -58,11 +61,6 @@ header {
         font-size: 2em;
     }
 
-.faq-heading {
-    border-bottom: #777;
-    padding: 20px 60px;
-    background-color: #000;
-}
 
 .nav ol li {
     margin: 1em;
@@ -102,8 +100,50 @@ header {
             color: white;
         }
 
+ @media (max-width: 1200px){
+     .btn{
+         display:flex;
+         z-index: 100;
+     }
+     header{
+         justify-content: space-between;
+         padding: 0 2em;
+     }
+     .nav{
+         width:100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         display: flex;
+         justify-content: center;
+         background: #000;
+         transform: translateY(-110%);
+         transition: all .4s;
+     }
+     input:checked ~ .nav{
+         transform: translateY(0%);
+     }
+    input:checked::before {
+        content: url(/Content/NavigationMenu/menu_icon.png);
+    }
+ }
+
+ @media (max-width: 700px){
+
+     .nav ol{
+         flex-direction: column;
+         text-align: center;
+     }
+ }
+
 p {
     font-size: 17px;
+}
+
+.faq-heading {
+    border-bottom: #777;
+    padding: 20px 60px;
+    background-color: #000;
 }
 
 .faq-container {
