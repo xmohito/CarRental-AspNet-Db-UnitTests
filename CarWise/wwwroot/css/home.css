@@ -54,74 +54,62 @@ body {
             color: #000;
         }
 
-        @media (max-width: 1000px){
+@media (min-width: 1000px) {
 
-            #section-icons{
-                flex-direction: column;
-                width: 100%;
-                display: none;
-            }
-                #section-icons div {
-                    height:200px;
-                    width:400px;
-                    float:none;
-                }
-                #section-icons p {
-                    /*display: none;*/
-                }
-                
-        }
-    #section-icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+    #section-icons div {
+        width: 33.33%;
+    }
+}
+
+#section-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    #section-icons div {
+        float: left;
+        border-radius: 5%;
     }
 
-        #section-icons div {
-            width: 33.33%;
-            float: left;
-            border-radius: 5%;
-        }
+    #section-icons .box1, #section-icons .box3 {
+        background: #000;
+    }
 
-        #section-icons .box1, #section-icons .box3 {
-            background: #000;
-        }
+    #section-icons .box2 {
+    }
 
-        #section-icons .box2 {
-        }
+    #section-icons .button {
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+        border: #fff 1px solid;
+        padding: 10px 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: 0.4s;
+        background-color: none;
+    }
 
-        #section-icons .button {
-            font-size: 18px;
-            text-decoration: none;
-            color: #fff;
-            border: #fff 1px solid;
-            padding: 10px 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            transition: 0.4s;
-            background-color: none;
-        }
+    #section-icons p {
+        margin-top: 30px;
+        font-size: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 
-        #section-icons p {
-            margin-top: 30px;
-            font-size: 20px;
-            margin-left: 30px;
-            margin-right: 30px;
-        }
+    #section-icons .button:hover {
+        background-color: #fff;
+        color: #000;
+    }
 
-        #section-icons .button:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        #section-icons img {
-            width: 15%;
-            height: 15%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px 0 20px 0;
-        }
-
+    #section-icons img {
+        width: 15%;
+        height: 15%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 0 20px 0;
+    }
