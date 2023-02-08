@@ -3,7 +3,7 @@
     ViewData["Title"] = "Login";
 }
 
-<link rel="stylesheet" href="~/css/rent.css" />
+<link rel="stylesheet" href="~/css/login.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
 
 @* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
@@ -23,3 +23,15 @@
 @* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
 
 <h1>LOGIN PAGE</h1>
+
+<div class="login">
+    <form action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
