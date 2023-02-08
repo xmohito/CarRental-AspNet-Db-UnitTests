@@ -1,3 +1,4 @@
+using CarWise.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Data.SqlClient;
+
 
 namespace CarWise
 {
@@ -23,6 +27,9 @@ namespace CarWise
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=CarWiseDB.mdf"));
+
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Desktop\Projekt\CarWise\CarWise\CarWiseDB.mdf;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
