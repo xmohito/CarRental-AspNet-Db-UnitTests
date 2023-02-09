@@ -6,6 +6,8 @@ namespace CarWise.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Models.Users> Users { get; set; } = default!;
+        public DbSet<Models.User> Users { get; set; } = default!;
+
+        public DbSet<Models.Car> Cars { get; set; } = default!;
     }
 }

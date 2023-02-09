@@ -19,7 +19,7 @@ namespace CarWise.Data
                     return; // dane już zostały dodane do bazy danych
                 }
 
-                var user = new Users()
+                var user = new User()
                 {
                     Username = "Michał",
                     Password = "Brózda",
