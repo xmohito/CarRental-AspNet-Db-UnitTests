@@ -16,7 +16,7 @@ namespace CarWise.Models
         [Required]
         [Display(Name = "Nazwa u¿ytkownika")]
         [StringLength(20, ErrorMessage = "Nazwa u¿ytkownika mo¿e zawieraæ maksymalnie 20 znaków")]
-        [Index(IsUnique = true)]
+        //[Index(IsUnique = true)]
 
         public string Username { get; set; }
 
