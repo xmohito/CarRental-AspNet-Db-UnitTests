@@ -140,3 +140,28 @@ header {
     }
 }
 /*xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx*/
+
+.grid-container{
+
+    background-color: #fff;
+    width:70%;
+    align-items: center;
+    align-content: center;
+    border-radius: 10%;
+    color: #000;
+    padding:50px;
+    
+}
+
+.grid-container img{
+    height:150px;
+    width:225px;
+    border-radius: 10%;
+}
+
+.grid-container div{
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.grid-container div:hover{
+background: linear-gradient(50deg, rgba(255,255,255,1) 22%, rgba(235,240,242,1) 100%);}
