@@ -1,46 +1,194 @@
-﻿
-@{
-    ViewData["Title"] = "Rent";
+﻿@{
+  ViewData["Title"] = "Rent";
 }
 
 <link rel="stylesheet" href="~/css/rent.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+<link rel="stylesheet" href="~/css/swiper-bundle.min.css" />
 
-@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="~/js/swiper-bundle.min.js"></script>
+
+
+@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
 <header>
-    <p class="Logo">CarWise</p>
-    <input type="checkbox" name="" class="btn" />
-    <div class="nav">
-        <ol>
-            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Rent" asp-action="Index">Rent a car</a></li>
-            <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
-            <li><a asp-controller="Login" asp-action="Index">Services</a></li>
+  <p class="Logo">CarWise</p>
+  <input type="checkbox" name="" class="btn" />
+  <div class="nav">
+    <ol>
+      <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+      <li><a asp-controller="Rent" asp-action="Index">Rent a car</a></li>
+      <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
+      <li><a asp-controller="Login" asp-action="Index">Services</a></li>
 
-        </ol>
-    </div>
+    </ol>
+  </div>
 </header>
-@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
+@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
+<h1 class="title">Choose your car</h1>
+<section class="container">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          <div class="card">
+              <div class="image">
+                  <img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg">
+              </div>
+              <h2>BMW Series 3</h2>
+              <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
+              <a href="" class="button">Rent this car</a>
+              <button id="rent-this-car">Rent</button>
+          </div>
+      </div>
 
-<h1>RENT A CAR PAGE</h1>
+      <div class="swiper-slide">
+          <div class="card">
+              <div class="image">
+                  <img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="2_fiat_500.jpg">
+              </div>
+              <h2>Fiat 500</h2>
+              <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
 
-<div class="grid-container">
-    <div class="grid-item">1
-      <img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg">
+              <a href="" class="button">Rent this car</a>
+          </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <div class="image">
+            <img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="3_audi_a4.jpg">
+          </div>
+          <h2>Audi A4</h2>
+           <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
+          <a href="" class="button">Rent this car</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <div class="image">
+            <img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="4_mercedes_glc.jpg">
+          </div>
+          <h2>Mereceds GLC </h2>
+           <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
+          <a href="" class="button">Rent this car</a>
+        </div>
+
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <div class="image">
+            <img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="5_volkswagen_golf.jpg">
+          </div>
+          <h2>Volkswagen Golf</h2>
+           <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
+          <a href="" class="button">Rent this car</a>
+        </div>
+
+      </div>
+
+      <div class="swiper-slide">
+        <div class="card">
+          <div class="image">
+            <img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="6_hyundai_i30.jpg">
+          </div>
+          <h2>Hyundai i30</h2>
+           <p>Body type: </p><br />
+              <p>Year: </p><br />
+              <p>Fuel: </p><br />
+              <p>Engine capacity: </p><br />
+              <p>Power: </p><br />
+              <p>Price: </p><br />
+          <a href="" class="button">Rent this car</a>
+        </div>
+
+      </div>
     </div>
-    <div class="grid-item">2
-        <img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="2_fiat_500.jpg">
+    
+  </div>
+</section>
+<div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+
+@*popuop reservation form*@
+
+<div class="popup">
+    <div class="close-btn">&times;</div>
+    <div class="form">
+        <h2>Customer form</h2>
+
+        <div class="form-element">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter name" />
+        </div>
+
+        <div class="form-element">
+            <label for="surname">Surname</label>
+            <input type="text" id="email" placeholder="Enter surname" />
+        </div>
+
+        <div class="form-element">
+            <label for="birthdate">Birth date</label>
+            <input type="date" id="birthdate" />
+        </div>
+
+        <div class="form-element">
+            <label for="phonenumber">Phone number</label>
+            <input type="text" id="phonenumber" placeholder="Enter phone number" />
+        </div>
+
+        <div class="form-element">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter email" />
+        </div>
+
+        <div class="form-element">
+            <label for="receiptdate">Receipt date</label>
+            <input type="date" id="receiptdate" />
+        </div>
+
+        <div class="form-element">
+            <label for="returndate">Return date</label>
+            <input type="date" id="returndate" />
+        </div>
+
+        <div class="form-element">
+            <input type="checkbox" id="conformation" />
+            <label for="conformation">Send E-mail conformation</label>
+        </div>
+
+        <div class="form-element">
+            <button id="confirm">Confirm</button>
+        </div>
+
     </div>
-    <div class="grid-item">3
-        <img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="3_audi_a4.jpg">
-    </div>
-    <div class="grid-item">4
-        <img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="4_mercedes_glc.jpg">
-    </div>
-    <div class="grid-item">5
-        <img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="5_volkswagen_golf.jpg">
-    </div>
-    <div class="grid-item">6
-        <img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="6_hyundai_i30.jpg">
-    </div>
+
 </div>
