@@ -6,41 +6,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarWise.Controllers;
+using Microsoft.AspNetCore.Http;
+using System.Security.Cryptography;
 
 namespace CarWise.Controllers
 {
     public class LoginController : Controller
     {
-        [HttpGet]
-        public IActionResult Index()
+
+        private readonly AppDbContext db;
+
+        public LoginController(AppDbContext context)
         {
-
-            User _user = new User();
-
-            return View(User);
+            db = context;
         }
 
+        public IActionResult Index(string Message)
+        {
+            ViewData["Message"] = Message;
+            return View();
+        }
 
         [HttpPost]
-        public IActionResult Index(User _user)
+        public IActionResult Index(string username, string password)
         {
-            AppDbContext _appDBContex = new AppDbContext();
-            //var status = _appDBContex.Users.Where(c => c.Username == username. )
+            using (var contex = db.Database.BeginTransaction())
+            {
+                int userChecker = db.Users.Where(c => c.Username == username && c.Password == password).Count();
+                if (userChecker == 1)
+                {
+                    return RedirectToAction("index", "Panel");
+                }
+                else
+                {
 
-
-            return View(User);
+                    ViewData["Message"] = "Incorrect username or password";
+                    return View();
+                }
+                
+            }
         }
     }
+
 }
-//using (DbConn db = new DbConn())
-//{
-//    int userChecker = db.users.Where(c => c.UserName == txtUsername.Text && c.Pass == txtPassword.Password).Count();
-//    if (userChecker == 1)
-//    {
-//        Panel dashboard = new Panel();
-//        dashboard.Show();
-//    }
-//    else
-//    {
-//        MessageBox.Show("Nazwa użytkownika lub hasło została wprowadzona błędnie.");
-//    }

@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Panel";
+}
+
 @model IEnumerable<CarWise.Models.Car>
 
     <div class="table-responsive">
@@ -19,16 +22,16 @@
             <tbody>
                 @foreach (var car in Model)
                 {
-                <tr>
-                    <td>@car.Brand</td>
-                    <td>@car.Model</td>
-                    <td>@car.IdBodyType</td>
-                    <td>@car.Year</td>
-                    <td>@car.IdFuel</td>
-                    <td>@car.EngineCapacity</td>
-                    <td>@car.Power</td>
-                    <td>@car.PriceForDay</td>
-                </tr>
+                    <tr>
+                        <td>@car.Brand</td>
+                        <td>@car.Model</td>
+                        <td>@car.IdBodyType</td>
+                        <td>@car.Year</td>
+                        <td>@car.IdFuel</td>
+                        <td>@car.EngineCapacity</td>
+                        <td>@car.Power</td>
+                        <td>@car.PriceForDay</td>
+                    </tr>
                 }
             </tbody>
         </table>x
