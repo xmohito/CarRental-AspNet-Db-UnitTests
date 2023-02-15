@@ -59,6 +59,7 @@ namespace CarWise.Controllers
                     db.SaveChanges();
                     contex.Commit();
                     ViewData["Message"] = "Added";
+                    return RedirectToAction("index", "Rent");
                 }
                 else
                 {

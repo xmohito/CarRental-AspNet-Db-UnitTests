@@ -27,7 +27,6 @@ namespace CarWise
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=CarWiseDB.mdf"));
             string path = Directory.GetCurrentDirectory();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\CarWiseDB.mdf;Integrated Security=True"));
