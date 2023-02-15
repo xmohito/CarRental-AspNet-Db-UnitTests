@@ -151,11 +151,11 @@ header {
     margin-top:30px;
 }
 .container {
-    position: absolute;
+ /*   position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
     display: flex;
     gap: 12px;
     max-width: 1500px;
@@ -167,6 +167,7 @@ header {
     overflow-x: scroll;
     scroll-padding: 30px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom:50px;
 }
   .container .card {
     display: flex;
@@ -223,7 +224,90 @@ header {
   }
 
 
- .popup *{
+ 
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    background-color: #4070f4;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+}
+
+input[type="checkbox"]:checked + .checkbox-button {
+    background-color: #3cfa7e;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Style form elements */
+.form-element {
+    margin-bottom: 1rem;
+}
+
+/* Style labels */
+label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+}
+
+/* Style input fields */
+input {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+
+
+/*  .form{
+      text-align:center;
+     
+      width:100%;
+      background: #000;
+  }
+  .form .form-element{
+     margin:15px 0px;
+  }
+
+.form .form-element .label {
+    font-size: 14px;
+    color: white;
+    }
+
+
+.popup .form .form-element input[type="text"], .popup .form .form-element input[type="date"] {
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.popup .form .form-element input[type="checkbox"] {
+    margin-right: 5px;
+}*/
+
+
+
+
+
+    /* .popup *{
      margin:0px;
      padding: 0px;
      box-sizing: border-box;
@@ -311,3 +395,4 @@ header {
         cursor: pointer;
 
     }
+*/

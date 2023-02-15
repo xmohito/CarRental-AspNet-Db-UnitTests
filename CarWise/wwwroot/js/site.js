@@ -37,11 +37,12 @@ var swiper = new Swiper(".mySwiper", {
     },
   });
 
-
-document.querySelector("#rent-this-car").addEventListener("click", function () {
-    document.querySelector(".popup").classList.add("active");
-});
-
-document.querySelector(".popup .close-btn").addEventListener("click", function () {
-    document.querySelector(".popup").classList.remove("active");
-});
+//fuction that allows you to click only one checbox at the time
+function updateCheckbox(checkbox) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != checkbox) {
+            checkboxes[i].checked = false;
+        }
+    }
+}

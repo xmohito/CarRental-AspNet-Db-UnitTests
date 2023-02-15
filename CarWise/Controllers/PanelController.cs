@@ -17,7 +17,7 @@ namespace CarWise.Controllers
         }
         public IActionResult Index()
         {
-            var instructors = _context.Cars.ToList();
+            var instructors = _context.Customers.ToList();
             return View(instructors);
         }
     }

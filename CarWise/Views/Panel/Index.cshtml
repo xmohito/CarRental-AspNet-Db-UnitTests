@@ -2,35 +2,26 @@
     ViewData["Title"] = "Panel";
 }
 
-@model IEnumerable<CarWise.Models.Car>
+@model IEnumerable<CarWise.Models.Customer>
 
     <div class="table-responsive">
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>IdBodyType</th>
-                    <th>Year</th>
-                    <th>IdFuel</th>
-                    <th>EngineCapacity</th>
-                    <th>Power</th>
-                    <th>PriceForDay</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+
+                   
 
                 </tr>
             </thead>
             <tbody>
-                @foreach (var car in Model)
+                @foreach (var customer in Model)
                 {
                     <tr>
-                        <td>@car.Brand</td>
-                        <td>@car.Model</td>
-                        <td>@car.IdBodyType</td>
-                        <td>@car.Year</td>
-                        <td>@car.IdFuel</td>
-                        <td>@car.EngineCapacity</td>
-                        <td>@car.Power</td>
-                        <td>@car.PriceForDay</td>
+                        <td>@customer.Name</td>
+                        <td>@customer.Surname</td>
+
                     </tr>
                 }
             </tbody>

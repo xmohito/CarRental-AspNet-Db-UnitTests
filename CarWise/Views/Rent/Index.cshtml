@@ -1,6 +1,7 @@
-﻿@{
-  ViewData["Title"] = "Rent";
-}
+﻿@model IEnumerable<CarWise.Models.Car>
+
+@{ ViewData["Title"] = "Rent"; }
+
 
 <link rel="stylesheet" href="~/css/rent.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
@@ -13,182 +14,183 @@
 
 @* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
 <header>
-  <p class="Logo">CarWise</p>
-  <input type="checkbox" name="" class="btn" />
-  <div class="nav">
-    <ol>
-      <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-      <li><a asp-controller="Rent" asp-action="Index">Rent a car</a></li>
-      <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
-      <li><a asp-controller="Login" asp-action="Index">Services</a></li>
+    <p class="Logo">CarWise</p>
+    <input type="checkbox" name="" class="btn" />
+    <div class="nav">
+        <ol>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Rent" asp-action="Index">Rent a car</a></li>
+            <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
+            <li><a asp-controller="Login" asp-action="Index">Services</a></li>
 
-    </ol>
-  </div>
+        </ol>
+    </div>
 </header>
 @* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
+
+@*@using (Html.BeginForm("MyAction", "RentCotroller", FormMethod.Post))
+{*@
 <h1 class="title">Choose your car</h1>
 <section class="container">
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-          <div class="card">
-              <div class="image">
-                  <img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg">
-              </div>
-              <h2>BMW Series 3</h2>
-              <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
-              <a href="" class="button">Rent this car</a>
-              <button id="rent-this-car">Rent</button>
-          </div>
-      </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @foreach (var car in Model){
+                   <div class="swiper-slide">
+                <div class="card">
+                    <div class="image">
+                    @if (car.Id == 1){
+                         <img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    else if (car.Id == 2){
+                         <img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    else if (car.Id == 3){
+                         <img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    else if (car.Id == 4){
+                         <img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    else if (car.Id == 5){
+                         <img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    else if (car.Id == 6){
+                         <img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="1_bmw_3series.jpg">
+                    }
+                    </div>
 
-      <div class="swiper-slide">
-          <div class="card">
-              <div class="image">
-                  <img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="2_fiat_500.jpg">
-              </div>
-              <h2>Fiat 500</h2>
-              <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
+                    <h2>@car.Brand @car.Model</h2>
+                    @if (car.IdBodyType == 1) { 
+                    <p name="body_p">Body type: Hatchback </p><br />
+                    }
+                    else if (car.IdBodyType == 2) { 
+                    <p name="body_p">Body type: Hothatch </p><br />
+                    }
+                    else if (car.IdBodyType == 3) { 
+                    <p name="body_p">Body type: Wagon </p><br />
+                    }
+                    else if (car.IdBodyType == 4) { 
+                    <p name="body_p">Body type: Sedan </p><br />
+                    }
+                    else if (car.IdBodyType == 5) { 
+                    <p name="body_p">Body type: Suv </p><br />
+                    }
 
-              <a href="" class="button">Rent this car</a>
-          </div>
-      </div>
+                    <p name="year_p">Year: @car.Year </p><br />
+                    @if (car.IdFuel == 1){
+                        <p name="fuel_p">Fuel: Diesel </p><br />
+                    }
+                    else if (car.IdFuel == 2)
+                    {
+                         <p name="fuel_p">Fuel: Gasoline </p><br />
+                    }
+                    else if (car.IdFuel == 3)
+                    {
+                         <p name="fuel_p">Fuel: Gasoline+LPG </p><br />
+                    }
+                    
+                    <p name="engine_p">Engine capacity: @car.EngineCapacity L</p><br />
+                    <p name="power_p">Power: @car.Power </p><br />
+                    <p name="price_p">Price for day: @car.PriceForDay zł </p><br />
+                    <label>
+                        <input type="checkbox" value="@car.Id" name="@car.Model" id="@car.Id" onchange="updateCheckbox(this)" />
+                        <span class="checkbox-button">Rent this car</span>
+                    </label>
+                </div>
+            </div>
+            }
+         
 
-      <div class="swiper-slide">
-        <div class="card">
-          <div class="image">
-            <img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="3_audi_a4.jpg">
-          </div>
-          <h2>Audi A4</h2>
-           <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
-          <a href="" class="button">Rent this car</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="card">
-          <div class="image">
-            <img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="4_mercedes_glc.jpg">
-          </div>
-          <h2>Mereceds GLC </h2>
-           <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
-          <a href="" class="button">Rent this car</a>
-        </div>
-
-      </div>
-
-      <div class="swiper-slide">
-        <div class="card">
-          <div class="image">
-            <img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="5_volkswagen_golf.jpg">
-          </div>
-          <h2>Volkswagen Golf</h2>
-           <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
-          <a href="" class="button">Rent this car</a>
+            
         </div>
 
-      </div>
-
-      <div class="swiper-slide">
-        <div class="card">
-          <div class="image">
-            <img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="6_hyundai_i30.jpg">
-          </div>
-          <h2>Hyundai i30</h2>
-           <p>Body type: </p><br />
-              <p>Year: </p><br />
-              <p>Fuel: </p><br />
-              <p>Engine capacity: </p><br />
-              <p>Power: </p><br />
-              <p>Price: </p><br />
-          <a href="" class="button">Rent this car</a>
-        </div>
-
-      </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </div>
-    
-  </div>
+
 </section>
-<div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+@*}*@
 
-@*popuop reservation form*@
 
-<div class="popup">
-    <div class="close-btn">&times;</div>
-    <div class="form">
+@*CUSTOMER FORM*@
+<div class="form">
+    <form id="customer_form" asp-action="Index" method="post">
         <h2>Customer form</h2>
 
         <div class="form-element">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter name" />
+            <input type="text" name="name" placeholder="Enter name" />
         </div>
 
         <div class="form-element">
             <label for="surname">Surname</label>
-            <input type="text" id="email" placeholder="Enter surname" />
+            <input type="text" name="surname" placeholder="Enter surname" />
         </div>
 
         <div class="form-element">
             <label for="birthdate">Birth date</label>
-            <input type="date" id="birthdate" />
+            <input type="date" name="birthdate" />
         </div>
 
         <div class="form-element">
             <label for="phonenumber">Phone number</label>
-            <input type="text" id="phonenumber" placeholder="Enter phone number" />
+            <input type="text" name="phonenumber" placeholder="Enter phone number" />
         </div>
 
         <div class="form-element">
             <label for="email">Email</label>
-            <input type="text" id="email" placeholder="Enter email" />
+            <input type="text" name="email" placeholder="Enter email" />
         </div>
 
         <div class="form-element">
             <label for="receiptdate">Receipt date</label>
-            <input type="date" id="receiptdate" />
+            <input type="date" name="receiptdate" />
         </div>
 
         <div class="form-element">
             <label for="returndate">Return date</label>
-            <input type="date" id="returndate" />
+            <input type="date" name="returndate" />
         </div>
 
         <div class="form-element">
-            <input type="checkbox" id="conformation" />
+            <input type="checkbox" id="conformation" data-ignore="true" />
             <label for="conformation">Send E-mail conformation</label>
         </div>
 
         <div class="form-element">
-            <button id="confirm">Confirm</button>
+            <button type="submit">Confirm</button>
         </div>
-
-    </div>
-
+        @if (ViewData["Message"] != null)
+        {
+<div class="alert alert-danger">
+    @ViewData["Message"]
+</div>}
+    </form>
 </div>
+
+
+<script>
+    console.log("dziala12");
+    const myForm = document.getElementById("customer_form");
+    const checkboxes = document.querySelectorAll("input[type='checkbox']:not([data-ignore=true])");
+
+    myForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let selectedCheckbox = null;
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedCheckbox = checkbox;
+            }
+        });
+
+        if (selectedCheckbox) {
+            const value = selectedCheckbox.value;
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "car";
+            input.value = value;
+            myForm.appendChild(input);
+        }
+        myForm.submit();
+    });
+</script>

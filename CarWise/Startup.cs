@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
-
+using System.IO;
 
 namespace CarWise
 {
@@ -28,8 +28,9 @@ namespace CarWise
         {
             services.AddControllersWithViews();
             //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=CarWiseDB.mdf"));
+            string path = Directory.GetCurrentDirectory();
 
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Desktop\Projekt\CarWise\CarWise\CarWiseDB.mdf;Integrated Security=True"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\CarWiseDB.mdf;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using CarWise.Models;
+using System.IO;
 
 #nullable disable
 
@@ -27,9 +28,10 @@ namespace CarWise.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            string path = Directory.GetCurrentDirectory();
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Admin\\Desktop\\Projekt\\CarWise\\CarWise\\CarWiseDB.mdf;Integrated Security=True");
+                optionsBuilder.UseSqlServer($@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={path}\CarWiseDB.mdf;Integrated Security=True");
             }
         }
 
@@ -117,7 +119,7 @@ namespace CarWise.Data
 
             modelBuilder.Entity<Rental>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.IdCar).HasColumnName("ID_Car");
 
@@ -126,6 +128,10 @@ namespace CarWise.Data
                 entity.Property(e => e.ReceiptDate).HasColumnType("date");
 
                 entity.Property(e => e.ReturnDate).HasColumnType("date");
+
+                entity.Property(e => e.ToPay).HasColumnName("ToPay");
+
+                entity.Property(e => e.Pay).HasColumnName("Pay");
 
                 entity.HasOne(d => d.IdCarNavigation)
                     .WithMany()
