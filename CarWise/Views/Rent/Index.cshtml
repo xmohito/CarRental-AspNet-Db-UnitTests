@@ -28,79 +28,85 @@
 </header>
 @* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
 
-@*@using (Html.BeginForm("MyAction", "RentCotroller", FormMethod.Post))
-{*@
+
 <h1 class="title">Choose your car</h1>
 <section class="container">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            @foreach (var car in Model){
-                   <div class="swiper-slide">
-                <div class="card">
-                    <div class="image">
-                    @if (car.Id == 1){
-                         <img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg">
-                    }
-                    else if (car.Id == 2){
-                         <img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="2_fiat_500.jpg">
-                    }
-                    else if (car.Id == 3){
-                         <img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="3_audi_a4.jpg">
-                    }
-                    else if (car.Id == 4){
-                         <img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="4_mercedes_glc.jpg">
-                    }
-                    else if (car.Id == 5){
-                         <img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="5_volkswagen_golf.jpg">
-                    }
-                    else if (car.Id == 6){
-                         <img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="6_hyundai_i30.jpg">
-                    }
-                    </div>
+            @foreach (var car in Model)
+            {
+<div class="swiper-slide">
+    <div class="card">
+        <div class="image">
+            @if (car.Id == 1)
+            {
+<img src="~/Content/Rental/CarAssets/1_bmw_3series.jpg" alt="1_bmw_3series.jpg"> }
+                else if (car.Id == 2)
+                {
+<img src="~/Content/Rental/CarAssets/2_fiat_500.jpg" alt="2_fiat_500.jpg"> }
+                else if (car.Id == 3)
+                {
+<img src="~/Content/Rental/CarAssets/3_audi_a4.jpg" alt="3_audi_a4.jpg"> }
+                else if (car.Id == 4)
+                {
+<img src="~/Content/Rental/CarAssets/4_mercedes_glc.jpg" alt="4_mercedes_glc.jpg"> }
+                else if (car.Id == 5)
+                {
+<img src="~/Content/Rental/CarAssets/5_volkswagen_golf.jpg" alt="5_volkswagen_golf.jpg"> }
+                else if (car.Id == 6)
+                {
+<img src="~/Content/Rental/CarAssets/6_hyundai_i30.jpg" alt="6_hyundai_i30.jpg">}
+        </div>
 
-                    <h2>@car.Brand @car.Model</h2>
-                    @if (car.IdBodyType == 1) { 
-                    <p name="body_p">Body type: Hatchback </p><br />
-                    }
-                    else if (car.IdBodyType == 2) { 
-                    <p name="body_p">Body type: Hothatch </p><br />
-                    }
-                    else if (car.IdBodyType == 3) { 
-                    <p name="body_p">Body type: Wagon </p><br />
-                    }
-                    else if (car.IdBodyType == 4) { 
-                    <p name="body_p">Body type: Sedan </p><br />
-                    }
-                    else if (car.IdBodyType == 5) { 
-                    <p name="body_p">Body type: Suv </p><br />
-                    }
+        <h2>@car.Brand @car.Model</h2>
+        @if (car.IdBodyType == 1)
+        {
+            <p name="body_p">Body type: Hatchback </p><br />
+        }
+        else if (car.IdBodyType == 2)
+        {
+            <p name="body_p">Body type: Hothatch </p><br />
+        }
+        else if (car.IdBodyType == 3)
+        {
+            <p name="body_p">Body type: Wagon </p><br />
+        }
+        else if (car.IdBodyType == 4)
+        {
+            <p name="body_p">Body type: Sedan </p><br />
+        }
+        else if (car.IdBodyType == 5)
+        {
+            <p name="body_p">Body type: Suv </p><br />
+        }
 
-                    <p name="year_p">Year: @car.Year </p><br />
-                    @if (car.IdFuel == 1){
-                        <p name="fuel_p">Fuel: Diesel </p><br />
-                    }
-                    else if (car.IdFuel == 2)
-                    {
-                         <p name="fuel_p">Fuel: Gasoline </p><br />
-                    }
-                    else if (car.IdFuel == 3)
-                    {
-                         <p name="fuel_p">Fuel: Gasoline+LPG </p><br />
-                    }
-                    
-                    <p name="engine_p">Engine capacity: @car.EngineCapacity L</p><br />
-                    <p name="power_p">Power: @car.Power HP</p><br />
-                    <p name="price_p">Price for day: @car.PriceForDay zł </p><br />
-                    <label>
-                        <input  type="checkbox" value="@car.Id" name="@car.Model" id="@car.Id" onchange="updateCheckbox(this)"  />
-                        <span class="checkbox-button">Rent this car</span> 
-                    </label>
-                </div>
-            </div>
-            }
-         
+        <p name="year_p">Year: @car.Year </p><br />
+        @if (car.IdFuel == 1)
+        {
+<p name="fuel_p">Fuel: Diesel </p><br />
+}
+else if (car.IdFuel == 2)
+{
+<p name="fuel_p">Fuel: Gasoline </p><br />
+}
+else if (car.IdFuel == 3)
+{
+<p name="fuel_p">Fuel: Gasoline+LPG </p><br />
+}
 
-            
+        <p name="engine_p">Engine capacity: @car.EngineCapacity L</p><br />
+        <p name="power_p">Power: @car.Power HP</p><br />
+        <p name="price_p">Price for day: @car.PriceForDay zł </p><br />
+        <label>
+            <input type="checkbox" value="@car.Id" name="@car.Model" id="@car.Id" onchange="updateCheckbox(this)" />
+            <span class="checkbox-button">Rent this car</span>
+        </label>
+    </div>
+</div>
+}
+
+
+
         </div>
 
         <div class="swiper-button-next"></div>
@@ -109,7 +115,6 @@
     </div>
 
 </section>
-@*}*@
 
 
 @*CUSTOMER FORM*@
@@ -160,13 +165,13 @@
         <div class="form-element">
             <button type="submit">Confirm</button>
         </div>
-        @if (ViewData["Message"] != null)
-        {
+    </form>
+</div>
+@if (ViewData["Message"] != null)
+{
 <div class="alert alert-danger">
     @ViewData["Message"]
 </div>}
-    </form>
-</div>
 
 
 <script>
@@ -194,3 +199,4 @@
         myForm.submit();
     });
 </script>
+
