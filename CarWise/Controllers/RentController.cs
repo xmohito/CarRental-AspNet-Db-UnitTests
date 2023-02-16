@@ -62,6 +62,18 @@ namespace CarWise.Controllers
             return isMatch;
         }
 
+        public int CalculateRentalDays(DateTime rentalDate, DateTime returnDate)
+        {
+            TimeSpan timeBetween = returnDate - rentalDate;
+
+            int rentalDays = timeBetween.Days;
+
+            return rentalDays;
+        }
+
+
+
+
         [HttpPost]
         public IActionResult Index(string name, string surname, DateTime birthdate, int phonenumber, string email, DateTime receiptdate, DateTime returndate, int car)
         {
@@ -82,6 +94,37 @@ namespace CarWise.Controllers
                                 }
                                 else
                                 {
+                                    int carPrice = 0;
+                                    if(car == 1)
+                                    {
+                                        carPrice = 650;
+                                    }
+                                    else if (car == 2)
+                                    {
+                                        carPrice = 300;
+                                    }
+                                    else if (car == 3)
+                                    {
+                                        carPrice = 600;
+                                    }
+                                    else if (car == 4)
+                                    {
+                                        carPrice = 700;
+                                    }
+                                    else if (car == 5)
+                                    {
+                                        carPrice = 500;
+                                    }
+                                    else if (car == 6)
+                                    {
+                                        carPrice = 340;
+                                    }
+
+                                    TimeSpan timeSpan = returndate - receiptdate;
+                                    int totalDays = timeSpan.Days;
+                                    int totalPrice = carPrice * totalDays;
+                                     
+
                                     var insertedCustomer = new Customer
                                     {
                                         Name = name,
@@ -99,7 +142,7 @@ namespace CarWise.Controllers
                                         IdCustomer = insertedCustomer.Id,
                                         ReceiptDate = receiptdate,
                                         ReturnDate = returndate,
-                                        ToPay = 1,
+                                        ToPay = totalPrice,
                                         Pay = false
 
                                     };
@@ -124,15 +167,10 @@ namespace CarWise.Controllers
                     {
                         return RedirectToAction("index", "Rent", new { Message = "Enter correct type of phone number" });
                     }
-
-
-
-
-
                 }
                 else
                 {
-                    return RedirectToAction("index", "Rent", new {Message = "Enter all data" });
+                    return RedirectToAction("index", "Rent", new {Message = "Pick the car and enter all informations" });
                 }
                 
 
