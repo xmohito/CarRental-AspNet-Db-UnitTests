@@ -109,58 +109,126 @@ else if (car.IdFuel == 3)
 
 
 @*CUSTOMER FORM*@
-<div class="form">
+@*<div class="form">
+        <form id="customer_form" asp-action="Index" method="post">
+            <h2>Customer form</h2>
+
+            <div class="form-element">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter name" />
+            </div>
+
+            <div class="form-element">
+                <label for="surname">Surname</label>
+                <input type="text" name="surname" placeholder="Enter surname" />
+            </div>
+
+            <div class="form-element">
+                <label for="birthdate">Birth date</label>
+                <input type="date" name="birthdate" />
+            </div>
+
+            <div class="form-element">
+                <label for="phonenumber">Phone number</label>
+                <input type="text" name="phonenumber" placeholder="Enter phone number" />
+            </div>
+
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="Enter email" />
+            </div>
+
+            <div class="form-element">
+                <label for="receiptdate">Receipt date</label>
+                <input id="receiptdate" type="date" name="receiptdate" />
+            </div>
+
+            <div class="form-element">
+                <label for="returndate">Return date</label>
+                <input id="returndate" type="date" name="returndate" />
+            </div>
+
+            <label for="emailConfirmation">Send E-mail confirmation:</label>
+            <div class="radio-wrapper">
+                <input type="radio" name="sendEmail" id="yes" value="yes">
+                <label for="yes">Yes</label>
+                <input type="radio" name="sendEmail" id="no" value="no" checked>
+                <label for="no">No</label>
+            </div>
+
+
+
+            <div class="form-element">
+                <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>*@
+<div id="formcus" class="form">
     <form id="customer_form" asp-action="Index" method="post">
         <h2>Customer form</h2>
 
-        <div class="form-element">
-            <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Enter name" />
+        <div class="form-row">
+            <div class="form-column">
+                <div class="form-element">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="Enter name" />
+                </div>
+
+                <div class="form-element">
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname" placeholder="Enter surname" />
+                </div>
+
+                <div class="form-element">
+                    <label for="birthdate">Birth date</label>
+                    <input type="date" name="birthdate" />
+                </div>
+
+                <div class="form-element">
+                    <label for="phonenumber">Phone number</label>
+                    <input type="text" name="phonenumber" placeholder="Enter phone number" />
+                </div>
+
+                <div class="form-element">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Enter email" />
+                </div>
+            </div>
+
+            <div class="form-column2">
+                <div class="form-element">
+                    <label for="receiptdate">Receipt date</label>
+                    <input id="receiptdate" type="date" name="receiptdate" />
+                </div>
+
+                <div class="form-element">
+                    <label for="returndate">Return date</label>
+                    <input id="returndate" type="date" name="returndate" />
+                </div>
+
+                <div class="form-element">
+                    <label for="emailConfirmation">Send E-mail confirmation:</label>
+                    <div class="radio-wrapper">
+                        <input type="radio" name="sendEmail" id="yes" value="yes">
+                        <label for="yes">Yes</label>
+                        <input type="radio" name="sendEmail" id="no" value="no" checked>
+                        <label for="no">No</label>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="form-element">
-            <label for="surname">Surname</label>
-            <input type="text" name="surname" placeholder="Enter surname" />
-        </div>
-
-        <div class="form-element">
-            <label for="birthdate">Birth date</label>
-            <input type="date" name="birthdate" />
-        </div>
-
-        <div class="form-element">
-            <label for="phonenumber">Phone number</label>
-            <input type="text" name="phonenumber" placeholder="Enter phone number" />
-        </div>
-
-        <div class="form-element">
-            <label for="email">Email</label>
-            <input type="text" name="email" placeholder="Enter email" />
-        </div>
-
-        <div class="form-element">
-            <label for="receiptdate">Receipt date</label>
-            <input id="receiptdate" type="date" name="receiptdate" />
-        </div>
-
-        <div class="form-element">
-            <label for="returndate">Return date</label>
-            <input id="returndate" type="date" name="returndate" />
-        </div>
-
-        <div class="form-element">
-            <input type="checkbox" id="conformation" data-ignore="true" />
-            <label for="conformation">Send E-mail conformation</label>
-        </div>
-
-        <div class="form-element">
+        <div class="message">
             <button type="submit">Confirm</button>
         </div>
     </form>
 </div>
+
+
+
 @if (ViewData["Message"] != null)
 {
-<div class="alert alert-danger">
+<div class="alert alert-info">
     @ViewData["Message"]
 </div>}
 

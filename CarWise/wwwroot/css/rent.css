@@ -244,155 +244,214 @@ input[type="checkbox"]:checked + .checkbox-button {
     background-color: #3cfa7e;
 }
 
+
 .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    background: black;
+    padding: 20px;
+    border-radius: 5%;
+    margin-bottom:50px;
+}
+/* Form row container */
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Form column container */
+.form-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+/* Form element container */
+.form-element {
+    margin: 10px 0;
+}
+
+/* Label styles */
+label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Radio button wrapper styles */
+.radio-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+    /* Radio button input styles */
+    .radio-wrapper input[type="radio"] {
+        margin-right: 10px;
+    }
+        .radio-wrapper input[type="radio"]#no {
+            margin-left: 10px;
+        }
+/* Button styles */
+button[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+    /* Button hover styles */
+    button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+/*.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}*/
+
+    /* Style the form heading */
+    /*.form h2 {
+        margin-bottom: 20px;
+    }*/
+
+/* Style the form elements */
+/*.form-element {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+    .form-element label {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-element input[type="text"],
+    .form-element input[type="email"],
+    .form-element input[type="date"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }*/
+
+/* Style the radio button wrapper */
+/*.radio-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .radio-wrapper input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .radio-wrapper label {
+        font-weight: bold;
+        margin-right: 10px;
+    }*/
+
+/* Style the submit button */
+/*.form-element button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .form-element button[type="submit"]:hover {
+        background-color: #45a049;
+    }*/
+
+
+
+
+/*.form {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-}
+}*/
 
 /* Style form elements */
-.form-element {
+/*.form-element {
     margin-bottom: 1rem;
-}
+}*/
 
 /* Style labels */
-label {
+/*label {
     display: inline-block;
     width: 150px;
     font-weight: bold;
-}
+}*/
 
 /* Style input fields */
-input {
+/*input {
     display: inline-block;
     border: 1px solid #ccc;
     padding: 5px;
     border-radius: 4px;
 }
 
-
-
-/*  .form{
-      text-align:center;
-     
-      width:100%;
-      background: #000;
-  }
-  .form .form-element{
-     margin:15px 0px;
-  }
-
-.form .form-element .label {
-    font-size: 14px;
-    color: white;
-    }
-
-
-.popup .form .form-element input[type="text"], .popup .form .form-element input[type="date"] {
-    margin-top: 5px;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    outline: none;
-    border: 1px solid #aaa;
-    border-radius: 5px;
+.radio-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.popup .form .form-element input[type="checkbox"] {
-    margin-right: 5px;
-}*/
-
-
-
-
-
-    /* .popup *{
-     margin:0px;
-     padding: 0px;
-     box-sizing: border-box;
- }
-
-.popup {
-    position: absolute;
-    top: -150%;
-    left: 50%;
-    opacity: 0;
-    transform: translate(-50%,-50%) scale(1.25);
-    background: #000;
-    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
-
-    transition: top 0ms ease-in-out 200ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 20ms ease-in-out 0ms;
-}
-    .popup.active {
-        top:50%;
-        opacity: 1;
-        transform: translate(-50%,-50%) scale(1);
-
-        transition: top 0ms ease-in-out 0ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 20ms ease-in-out 0ms;
+    .radio-wrapper label {
+        margin-left: 10px;
+        font-size: 16px;
+        color: #333;
     }
 
- .popup .close-btn{
-     position: absolute;
-     top:10px;
-     right:10px;
-     width: 15px;
-     height:15px;
-     background: #888;
-     color:#eee;
-     text-align:center;
-     line-height:15px;
-     border-radius:15px;
-     cursor:pointer;
- }
-
- .popup .form h2{
-     text-align:center;
-     color: white;
-     margin:10px 0px 20px;
-     font-size:25px;
-
- }
- .popup .form .form-element{
-
-     margin:15px 0px;
- }
-
- .popup .form .form-element .label{
-
-     font-size:14px;
-     color: white;
- }
-
- .popup .form .form-element input[type="text"], .popup .form .form-element input[type="date"]{
-     margin-top:5px;
-     display:block;
-     width:100%;
-     padding:10px;
-     outline:none;
-     border: 1px solid #aaa;
-     border-radius:5px;
-
- }
-
-    .popup .form .form-element input[type="checkbox"]{
-        margin-right:5px;
-    }
-
-    .popup .form .form-element button{
-        width:100%;
-        height:40px;
-        border: none;
-        outline: none;
-        font-size:15px;
-        background: white;
-        color: aqua;
-        border-radius:10px;
+    .radio-wrapper input[type="radio"] {
+        margin: 0;
+        margin-right: 5px;
+        width: 16px;
+        height: 16px;
         cursor: pointer;
-
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 1px solid #bbb;
+        border-radius: 50%;
     }
-*/
+
+        .radio-wrapper input[type="radio"]:checked::before {
+            content: "";
+            position: relative;
+            display: block;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+        }*/

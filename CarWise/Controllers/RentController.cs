@@ -9,6 +9,7 @@ using CarWise.Controllers;
 using Microsoft.AspNetCore.Http;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace CarWise.Controllers
 {
@@ -62,6 +63,41 @@ namespace CarWise.Controllers
             return isMatch;
         }
 
+        //public void sendMail(string name, DateTime receiptdate, DateTime returndate, int carPrice, string email)
+        //{
+        //    string body = "<h1>Witaj, " + name + "<br/></h1>";
+        //    body += "Dziękujemy za dokonanie rezerwacji.<br/><br/>";
+        //    body += "Data zameldowania: " + receiptdate + "<br/>";
+        //    body += "Data wymeldowania: " + returndate + "<br/><br/>";
+        //    body += "Da zapłaty: " + carPrice + " zł<br/>";
+
+        //    try
+        //    {
+        //        using (MailMessage mail = new MailMessage())
+        //        {
+        //            mail.From = new MailAddress("vip.apartaments@interia.pl", "Vip Apartaments");
+        //            mail.To.Add(email);
+        //            mail.Subject = "Potwierdzenie dokonania rezerwacji";
+        //            mail.Body = body;
+        //            mail.IsBodyHtml = true;
+
+        //            using (SmtpClient smtp = new SmtpClient("poczta.interia.pl", 587))
+        //            {
+        //                smtp.Credentials = new System.Net.NetworkCredential("vip.apartaments@interia.pl", "vipapartaments123");
+        //                smtp.EnableSsl = true;
+        //                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //                smtp.Send(mail);
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+
+        //    }
+
+        //}
+
+
         public int CalculateRentalDays(DateTime rentalDate, DateTime returnDate)
         {
             TimeSpan timeBetween = returnDate - rentalDate;
@@ -72,11 +108,10 @@ namespace CarWise.Controllers
         }
 
 
-
-
         [HttpPost]
         public IActionResult Index(string name, string surname, DateTime birthdate, int phonenumber, string email, DateTime receiptdate, DateTime returndate, int car)
         {
+
             using (var contex = db.Database.BeginTransaction())
             {
                 if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(surname) && !string.IsNullOrWhiteSpace(email) && birthdate != DateTime.MinValue
@@ -90,7 +125,7 @@ namespace CarWise.Controllers
                             {
                                 if(receiptdate == DateTime.MinValue || returndate == DateTime.MinValue || receiptdate > returndate || receiptdate < DateTime.Today)
                                 {
-                                    return RedirectToAction("index", "Rent", new { Message = "Enter a valid booking date range" });
+                                    return RedirectToAction("index", "Rent", new { Message = "Enter a valid rental date range" });
                                 }
                                 else
                                 {
@@ -149,7 +184,7 @@ namespace CarWise.Controllers
                                     db.Rentals.Add(insertedRent);
                                     db.SaveChanges();
                                     contex.Commit();
-                                    return RedirectToAction("index", "Rent");
+                                    return RedirectToAction("index", "Rent", new { Message = "Succesful!" });
                                 }
                             }
                             else

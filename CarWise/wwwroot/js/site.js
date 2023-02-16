@@ -45,6 +45,19 @@ function updateCheckbox(checkbox) {
             checkboxes[i].checked = false;
         }
     }
+
+    if (checkbox.checked) {
+        const formDiv = document.getElementById('formcus');
+        formDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+    //var form = document.getElementById("formcus");
+    //if (form.style.visibility === "visible") {
+    //    form.style.visibility = "hidden";
+    //} else {
+    //    form.style.visibility = "visible";
+    //}
 }
 
 
