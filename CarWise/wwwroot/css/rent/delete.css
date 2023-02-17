@@ -1,0 +1,36 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1B1B1B;
+    color: #fff;
+}
+
+
+/* Dark theme styles */
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
