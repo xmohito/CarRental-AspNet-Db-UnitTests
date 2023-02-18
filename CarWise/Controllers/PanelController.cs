@@ -22,7 +22,9 @@ namespace CarWise.Controllers
         public class dataInDataGrid
         {
             public int Id { get; set; }
-            public int? IdCar { get; set; }
+            //public int? IdCar { get; set; }
+            public string Brand { get; set; }
+            public string Model { get; set; }
             public string Name { get; set; }
             public string Surname { get; set; }
             public DateTime ReceiptDate { get; set; }
@@ -45,10 +47,12 @@ namespace CarWise.Controllers
                 var gridData = (from Rental in _context.Rentals
                                 join Customer in _context.Customers
                                 on Rental.IdCustomer equals Customer.Id
+                                join Car in  _context.Cars on Rental.IdCar equals Car.Id
                                 select new
                                 {
                                     Rental.Id,
-                                    Rental.IdCar,
+                                    Car.Brand,
+                                    Car.Model,
                                     Customer.Name,
                                     Customer.Surname,
                                     Rental.ReceiptDate,
@@ -63,7 +67,8 @@ namespace CarWise.Controllers
                     datas.Add(new dataInDataGrid
                     {
                         Id = rent.Id,
-                        IdCar = rent.IdCar,
+                        Brand = rent.Brand,
+                        Model = rent.Model,
                         Name = rent.Name,
                         Surname = rent.Surname,
                         ReceiptDate = rent.ReceiptDate,
