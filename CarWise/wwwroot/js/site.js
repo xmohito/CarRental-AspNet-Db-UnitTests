@@ -53,10 +53,4 @@ function updateCheckbox(checkbox) {
 
 }
 
-function handleEmailConfirmation() {
-    const yesRadio = document.getElementById("yes");
-    if (yesRadio.checked == true) {
-        RentController.sendEmail();
-    }
-}
 

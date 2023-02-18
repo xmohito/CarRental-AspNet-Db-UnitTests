@@ -63,13 +63,14 @@ namespace CarWise.Controllers
             return isMatch;
         }
 
-        public void sendMail(string name, DateTime receiptdate, DateTime returndate, int carPrice, string email)
+
+        public void sendMail(string name, DateTime receiptdate, DateTime returndate, int totalPrice, string email)
         {
-            string body = "<h1>Witaj, " + name + "<br/></h1>";
-            body += "Dziękujemy za dokonanie rezerwacji.<br/><br/>";
-            body += "Data zameldowania: " + receiptdate + "<br/>";
-            body += "Data wymeldowania: " + returndate + "<br/><br/>";
-            body += "Da zapłaty: " + carPrice + " zł<br/>";
+            string body = "<h1>Welcome, " + name + "<br/></h1>";
+            body += "Thanks for rent our car.<br/><br/>";
+            body += "Date from:: " + receiptdate + "<br/>";
+            body += "Data to: " + returndate + "<br/><br/>";
+            body += "Price: " + totalPrice + " zł<br/>";
 
             try
             {
@@ -77,7 +78,7 @@ namespace CarWise.Controllers
                 {
                     mail.From = new MailAddress("vip.apartaments@interia.pl", "CarWise");
                     mail.To.Add(email);
-                    mail.Subject = "Potwierdzenie dokonania rezerwacji";
+                    mail.Subject = "Rental confirmation";
                     mail.Body = body;
                     mail.IsBodyHtml = true;
 
@@ -95,8 +96,9 @@ namespace CarWise.Controllers
 
             }
 
-        }
 
+
+        }
 
         public int CalculateRentalDays(DateTime rentalDate, DateTime returnDate)
         {
@@ -109,8 +111,9 @@ namespace CarWise.Controllers
 
 
         [HttpPost]
-        public IActionResult Index(string name, string surname, DateTime birthdate, int phonenumber, string email, DateTime receiptdate, DateTime returndate, int car)
+        public IActionResult Index(string name, string surname, DateTime birthdate, int phonenumber, string email, DateTime receiptdate, DateTime returndate, int car, string sendEmailYes)
         {
+
 
             using (var contex = db.Database.BeginTransaction())
             {
@@ -158,7 +161,12 @@ namespace CarWise.Controllers
                                     TimeSpan timeSpan = returndate - receiptdate;
                                     int totalDays = timeSpan.Days;
                                     int totalPrice = carPrice * totalDays;
-                                     
+
+                                    if (sendEmailYes == "yes")
+                                    {
+                                        sendMail(name, receiptdate, returndate, totalPrice, email);
+                                    }
+
 
                                     var insertedCustomer = new Customer
                                     {
@@ -211,5 +219,9 @@ namespace CarWise.Controllers
 
             }
         }
+
+
+      
+
     }
 }
