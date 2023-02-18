@@ -76,7 +76,7 @@ namespace CarWise.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Login", new { Message = "Nie masz uprawnień!" });
+                return RedirectToAction("Index", "Login", new { Message = "Access denied!" });
             }
         }
 

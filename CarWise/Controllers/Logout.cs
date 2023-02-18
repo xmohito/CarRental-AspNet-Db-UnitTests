@@ -16,9 +16,9 @@ namespace CarWise.Controllers
             if (!string.IsNullOrEmpty(username))
             {
                 HttpContext.Session.Clear();
-                return RedirectToAction("Index", "Login", new { Message = "Zostałeś Wylogowany" });
+                return RedirectToAction("Index", "Login", new { Message = "You've been Logged Out" });
             }
-            return RedirectToAction("Index", "Login", new { Message = "Nie jesteś zalogowany!" });
+            return RedirectToAction("Index", "Login", new { Message = "You're not logged in!" });
 
 
         }
