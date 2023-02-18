@@ -182,8 +182,7 @@ header {
         padding: 30px;
         border-radius: 12px;
         border: 0px;
-        background: rgb(255,255,255);
-        background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4331933456976541) 100%);
+        background: #fff;
         scroll-snap-align: start;
         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
     }
