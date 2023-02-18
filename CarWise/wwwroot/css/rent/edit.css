@@ -4,55 +4,63 @@
     color: #fff;
 }
 
-
-/* Background color for the entire page */
 body {
-    background-color: #1a1a1a;
+    background-color: #202020;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+
+
 }
 
-/* Form container */
-.form-group {
-    margin-bottom: 1rem;
+form {
+    max-width: 600px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-/* Label text */
-.control-label {
-    color: #cfcfcf;
+.form-group input[type="submit"] {
+    margin-right: 10px;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
 }
 
-/* Input fields */
-.form-control {
-    background-color: #3d3d3d;
-    color: #cfcfcf;
-    border: 1px solid #666666;
+.form-group a {
+    color: #fff;
+
 }
 
-/* Submit button */
-input[type="submit"] {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-/* Back to list link */
-a[href*="Index"] {
-    color: #cfcfcf;
-}
-
-/* Validation error messages */
-.field-validation-error {
-    color: #dc3545;
-}
-
-/* Validation summary */
-.validation-summary-errors {
-    color: #dc3545;
-    background-color: #3d3d3d;
-    border: 1px solid #666666;
-    margin-top: 1rem;
-    padding: 1rem;
-}
-
-    /* Validation summary text */
-    .validation-summary-errors ul li {
-        list-style: none;
+    .form-group a:hover {
+        text-decoration: none;
     }
+
+.text-danger {
+    color: #ff6b6b;
+}
+
+h1 {
+    text-align: center;
+}
+
+hr {
+
+}
+
+.col-md-3 {
+    padding-left: 50px;
+}
+
+.form-control {
+    background-color: #404040;
+    color: #fff;
+    border: none;
+}
+
+label {
+    font-weight: bold;
+    color: #fff;
+}
+.container {
+    margin-right:0%;
+}

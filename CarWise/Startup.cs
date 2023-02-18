@@ -27,9 +27,16 @@ namespace CarWise
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+            });
             string path = Directory.GetCurrentDirectory();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\CarWiseDB.mdf;Integrated Security=True"));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +50,9 @@ namespace CarWise
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
+
             app.UseStaticFiles();
 
             app.UseRouting();

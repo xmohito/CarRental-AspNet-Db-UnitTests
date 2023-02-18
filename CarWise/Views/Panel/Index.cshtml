@@ -12,20 +12,20 @@
     <p class="Logo">CarWise</p>
     <div class="nav">
         <ol>
-            <li><a asp-controller="Login" asp-action="Index">Logout</a></li>
+            <li><a asp-controller="Logout" asp-action="Index">Logout</a></li>
 
         </ol>
-    </div>
+    </div>`
 </header>
 @*xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx*@
 
-@model IEnumerable<CarWise.Models.Rental>
+@model List<CarWise.Controllers.PanelController.dataInDataGrid>
 
 <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Customer</th>
+                <th>Clients</th>
                 <th>Car</th>
                 <th>ReceiptDate</th>
                 <th>ReturnDate</th>
@@ -38,10 +38,10 @@
             @foreach (var rental in Model)
             {
                 <tr>
-                    <td>@rental.IdCustomer</td>
+                    <td>@rental.Name @rental.Surname</td>
                     <td>@rental.IdCar</td>
-                    <td>@rental.ReceiptDate</td>
-                    <td>@rental.ReturnDate</td>
+                    <td>@rental.ReceiptDate.ToShortDateString()</td>
+                    <td>@rental.ReturnDate.ToShortDateString()</td>
                     <td>@rental.ToPay</td>
                     <td>@rental.Pay</td>
                     <td>

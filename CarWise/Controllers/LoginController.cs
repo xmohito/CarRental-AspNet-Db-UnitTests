@@ -35,6 +35,7 @@ namespace CarWise.Controllers
                 int userChecker = db.Users.Where(c => c.Username == username && c.Password == password).Count();
                 if (userChecker == 1)
                 {
+                    HttpContext.Session.SetString("Session_Username", username);
                     return RedirectToAction("index", "Panel");
                 }
                 else

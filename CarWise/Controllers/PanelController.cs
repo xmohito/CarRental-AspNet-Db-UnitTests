@@ -1,5 +1,6 @@
 ﻿using CarWise.Data;
 using CarWise.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,11 +18,66 @@ namespace CarWise.Controllers
             _context = context;
         }
 
+
+        public class dataInDataGrid
+        {
+            public int Id { get; set; }
+            public int? IdCar { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public DateTime ReceiptDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public int ToPay { get; set; }
+            public bool Pay { get; set; }
+
+        }
+
+
+
         // GET: Rentals
         public IActionResult Index()
         {
-            var rentals = _context.Rentals.ToList();
-            return View(rentals);
+            var username = HttpContext.Session.GetString("Session_Username");
+            Console.WriteLine(username);
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                var gridData = (from Rental in _context.Rentals
+                                join Customer in _context.Customers
+                                on Rental.IdCustomer equals Customer.Id
+                                select new
+                                {
+                                    Rental.Id,
+                                    Rental.IdCar,
+                                    Customer.Name,
+                                    Customer.Surname,
+                                    Rental.ReceiptDate,
+                                    Rental.ReturnDate,
+                                    Rental.ToPay,
+                                    Rental.Pay
+                                }).ToList();
+
+                List<dataInDataGrid> datas = new List<dataInDataGrid>();
+                foreach (var rent in gridData)
+                {
+                    datas.Add(new dataInDataGrid
+                    {
+                        Id = rent.Id,
+                        IdCar = rent.IdCar,
+                        Name = rent.Name,
+                        Surname = rent.Surname,
+                        ReceiptDate = rent.ReceiptDate,
+                        ReturnDate = rent.ReturnDate,
+                        ToPay = rent.ToPay,
+                        Pay = rent.Pay
+                    });
+                }
+                return View(datas);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login", new { Message = "Nie masz uprawnień!" });
+            }
         }
 
         // GET: Rentals/Create
