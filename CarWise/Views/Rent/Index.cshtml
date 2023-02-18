@@ -12,7 +12,7 @@
 <script src="~/js/swiper-bundle.min.js"></script>
 
 
-@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
+@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
 <header>
     <p class="Logo">CarWise</p>
     <input type="checkbox" name="" class="btn" />
@@ -26,7 +26,7 @@
         </ol>
     </div>
 </header>
-@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx *@
+@* xxxxxxxxxxxxxxxxxx NAVIGATION MENU xxxxxxxxxxxxxxxxxx  *@
 
 
 <h1 class="title">Choose your car</h1>
@@ -109,60 +109,13 @@ else if (car.IdFuel == 3)
 
 
 @*CUSTOMER FORM*@
-@*<div class="form">
-        <form id="customer_form" asp-action="Index" method="post">
-            <h2>Customer form</h2>
+@if (ViewData["Message"] != null)
+{
 
-            <div class="form-element">
-                <label for="name">Name</label>
-                <input type="text" name="name" placeholder="Enter name" />
-            </div>
+<div class="alert_info">
+    @ViewData["Message"]
+</div>}
 
-            <div class="form-element">
-                <label for="surname">Surname</label>
-                <input type="text" name="surname" placeholder="Enter surname" />
-            </div>
-
-            <div class="form-element">
-                <label for="birthdate">Birth date</label>
-                <input type="date" name="birthdate" />
-            </div>
-
-            <div class="form-element">
-                <label for="phonenumber">Phone number</label>
-                <input type="text" name="phonenumber" placeholder="Enter phone number" />
-            </div>
-
-            <div class="form-element">
-                <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Enter email" />
-            </div>
-
-            <div class="form-element">
-                <label for="receiptdate">Receipt date</label>
-                <input id="receiptdate" type="date" name="receiptdate" />
-            </div>
-
-            <div class="form-element">
-                <label for="returndate">Return date</label>
-                <input id="returndate" type="date" name="returndate" />
-            </div>
-
-            <label for="emailConfirmation">Send E-mail confirmation:</label>
-            <div class="radio-wrapper">
-                <input type="radio" name="sendEmail" id="yes" value="yes">
-                <label for="yes">Yes</label>
-                <input type="radio" name="sendEmail" id="no" value="no" checked>
-                <label for="no">No</label>
-            </div>
-
-
-
-            <div class="form-element">
-                <button type="submit">Confirm</button>
-            </div>
-        </form>
-    </div>*@
 <div id="formcus" class="form">
     <form id="customer_form" asp-action="Index" method="post">
         <h2>Customer form</h2>
@@ -209,7 +162,7 @@ else if (car.IdFuel == 3)
                 <div class="form-element">
                     <label for="emailConfirmation">Send E-mail confirmation:</label>
                     <div class="radio-wrapper">
-                        <input type="radio" name="sendEmail" id="yes" value="yes">
+                        <input type="radio" name="sendEmail" id="yes" value="yes"  onclick="handleEmailConfirmation()">
                         <label for="yes">Yes</label>
                         <input type="radio" name="sendEmail" id="no" value="no" checked>
                         <label for="no">No</label>
@@ -225,12 +178,6 @@ else if (car.IdFuel == 3)
 </div>
 
 
-
-@if (ViewData["Message"] != null)
-{
-<div class="alert alert-info">
-    @ViewData["Message"]
-</div>}
 
 
 

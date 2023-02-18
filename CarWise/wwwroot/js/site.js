@@ -51,13 +51,12 @@ function updateCheckbox(checkbox) {
         formDiv.scrollIntoView({ behavior: 'smooth' });
     }
 
-
-    //var form = document.getElementById("formcus");
-    //if (form.style.visibility === "visible") {
-    //    form.style.visibility = "hidden";
-    //} else {
-    //    form.style.visibility = "visible";
-    //}
 }
 
+function handleEmailConfirmation() {
+    const yesRadio = document.getElementById("yes");
+    if (yesRadio.checked == true) {
+        RentController.sendEmail();
+    }
+}
 

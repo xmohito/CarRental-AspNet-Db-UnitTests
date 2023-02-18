@@ -1,7 +1,10 @@
 ﻿body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1B1B1B;
+   /* background-color: #1B1B1B;*/
     color: #fff;
+    background-image: url(/Content/Rental/rental_background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -151,7 +154,7 @@ header {
     margin-top:30px;
 }
 .container {
- /*   position: absolute;
+    /*   position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -160,26 +163,30 @@ header {
     gap: 12px;
     max-width: 1500px;
     width: 100%;
-    background: #5c5c5c;
     border-radius: 12px;
     padding: 30px;
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
     scroll-padding: 30px;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-    margin-bottom:50px;
+   /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    background: rgb(0,0,0);
+    background: linear-gradient(122deg, rgba(0,0,0,1) 0%, rgba(64,56,56,1) 28%, rgba(21,94,94,1) 64%, rgba(0,0,0,1) 97%);*/
+    margin-bottom: 50px;
+
 }
-  .container .card {
-    display: flex;
-    flex: 0 0 33%;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    border-radius: 12px;
-    background: #fff;
-    scroll-snap-align: start;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-  }
+    .container .card {
+        display: flex;
+        flex: 0 0 33%;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        border-radius: 12px;
+        border: 0px;
+        background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4331933456976541) 100%);
+        scroll-snap-align: start;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    }
   .card .image {
     height: 150px;
     width: 225px;
@@ -250,10 +257,10 @@ input[type="checkbox"]:checked + .checkbox-button {
     flex-direction: column;
     max-width: 800px;
     margin: 0 auto;
-    background: black;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 5%;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 /* Form row container */
 .form-row {
@@ -321,137 +328,16 @@ button[type="submit"] {
         background-color: #3e8e41;
     }
 
-/*.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}*/
-
-    /* Style the form heading */
-    /*.form h2 {
-        margin-bottom: 20px;
-    }*/
-
-/* Style the form elements */
-/*.form-element {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-    .form-element label {
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-element input[type="text"],
-    .form-element input[type="email"],
-    .form-element input[type="date"] {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-    }*/
-
-/* Style the radio button wrapper */
-/*.radio-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-    .radio-wrapper input[type="radio"] {
-        margin-right: 5px;
-    }
-
-    .radio-wrapper label {
-        font-weight: bold;
-        margin-right: 10px;
-    }*/
-
-/* Style the submit button */
-/*.form-element button[type="submit"] {
-    background-color: #4CAF50;
+.alert_info {
+    font-size: 25px;
+    background: #000;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    text-align: center;
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+    text-shadow: 1px 1px #333;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 40px 20px #0795c4;
 }
-
-    .form-element button[type="submit"]:hover {
-        background-color: #45a049;
-    }*/
-
-
-
-
-/*.form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}*/
-
-/* Style form elements */
-/*.form-element {
-    margin-bottom: 1rem;
-}*/
-
-/* Style labels */
-/*label {
-    display: inline-block;
-    width: 150px;
-    font-weight: bold;
-}*/
-
-/* Style input fields */
-/*input {
-    display: inline-block;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.radio-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-    .radio-wrapper label {
-        margin-left: 10px;
-        font-size: 16px;
-        color: #333;
-    }
-
-    .radio-wrapper input[type="radio"] {
-        margin: 0;
-        margin-right: 5px;
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        border: 1px solid #bbb;
-        border-radius: 50%;
-    }
-
-        .radio-wrapper input[type="radio"]:checked::before {
-            content: "";
-            position: relative;
-            display: block;
-            top: 4px;
-            left: 4px;
-            width: 8px;
-            height: 8px;
-            background-color: #333;
-            border-radius: 50%;
-        }*/

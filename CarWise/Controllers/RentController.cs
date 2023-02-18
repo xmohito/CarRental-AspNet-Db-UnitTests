@@ -63,39 +63,39 @@ namespace CarWise.Controllers
             return isMatch;
         }
 
-        //public void sendMail(string name, DateTime receiptdate, DateTime returndate, int carPrice, string email)
-        //{
-        //    string body = "<h1>Witaj, " + name + "<br/></h1>";
-        //    body += "Dziękujemy za dokonanie rezerwacji.<br/><br/>";
-        //    body += "Data zameldowania: " + receiptdate + "<br/>";
-        //    body += "Data wymeldowania: " + returndate + "<br/><br/>";
-        //    body += "Da zapłaty: " + carPrice + " zł<br/>";
+        public void sendMail(string name, DateTime receiptdate, DateTime returndate, int carPrice, string email)
+        {
+            string body = "<h1>Witaj, " + name + "<br/></h1>";
+            body += "Dziękujemy za dokonanie rezerwacji.<br/><br/>";
+            body += "Data zameldowania: " + receiptdate + "<br/>";
+            body += "Data wymeldowania: " + returndate + "<br/><br/>";
+            body += "Da zapłaty: " + carPrice + " zł<br/>";
 
-        //    try
-        //    {
-        //        using (MailMessage mail = new MailMessage())
-        //        {
-        //            mail.From = new MailAddress("vip.apartaments@interia.pl", "Vip Apartaments");
-        //            mail.To.Add(email);
-        //            mail.Subject = "Potwierdzenie dokonania rezerwacji";
-        //            mail.Body = body;
-        //            mail.IsBodyHtml = true;
+            try
+            {
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress("vip.apartaments@interia.pl", "CarWise");
+                    mail.To.Add(email);
+                    mail.Subject = "Potwierdzenie dokonania rezerwacji";
+                    mail.Body = body;
+                    mail.IsBodyHtml = true;
 
-        //            using (SmtpClient smtp = new SmtpClient("poczta.interia.pl", 587))
-        //            {
-        //                smtp.Credentials = new System.Net.NetworkCredential("vip.apartaments@interia.pl", "vipapartaments123");
-        //                smtp.EnableSsl = true;
-        //                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //                smtp.Send(mail);
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
+                    using (SmtpClient smtp = new SmtpClient("poczta.interia.pl", 587))
+                    {
+                        smtp.Credentials = new System.Net.NetworkCredential("vip.apartaments@interia.pl", "vipapartaments123");
+                        smtp.EnableSsl = true;
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Send(mail);
+                    }
+                }
+            }
+            catch
+            {
 
-        //    }
+            }
 
-        //}
+        }
 
 
         public int CalculateRentalDays(DateTime rentalDate, DateTime returnDate)
@@ -184,7 +184,7 @@ namespace CarWise.Controllers
                                     db.Rentals.Add(insertedRent);
                                     db.SaveChanges();
                                     contex.Commit();
-                                    return RedirectToAction("index", "Rent", new { Message = "Succesful!" });
+                                    return RedirectToAction("index", "Rent", new { Message = $"Succesful! "+name+", you have to pay " +totalPrice+ " zł for your rental. Payment will be made upon receipt of the car." });
                                 }
                             }
                             else

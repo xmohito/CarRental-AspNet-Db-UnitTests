@@ -50,7 +50,10 @@ hr {
 .col-md-3 {
     padding-left: 50px;
 }
+.col-md-4{
+    margin: 0 auto;
 
+}
 .form-control {
     background-color: #404040;
     color: #fff;
@@ -61,6 +64,7 @@ label {
     font-weight: bold;
     color: #fff;
 }
-.container {
-    margin-right:0%;
+h4 {
+    border-bottom: 1px solid #fff;
+    padding-bottom:15px;
 }
